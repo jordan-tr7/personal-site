@@ -35,3 +35,32 @@
 //         this.y += ystep;
 //     }
 // }
+
+
+export class Walker {
+    constructor(p, width, height) {
+        this.p = p;
+        this.x = width / 2;
+        this.y = height / 2;
+        this.p.strokeWeight(2);
+    }
+
+    show(){
+        this.p.stroke(0);
+        this.p.point(this.x, this.y);
+    }
+
+    step() {
+        let choice = Math.floor(Math.random() * 4);
+
+        if (choice === 0){
+            this.x++;
+        } else if (choice === 1) {
+            this.x--;
+        } else if (choice === 2) {
+            this.y++;
+        } else {
+            this.y--;
+        }
+    }
+}
