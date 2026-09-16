@@ -10,7 +10,7 @@ const P5Sketch = () => {
   let walker;
   const width = 400;
   const height = 400;
- 
+  
   useEffect(() => {
     // 2. Define the sketch inside Instance Mode. 
     // Every p5 function must be prefixed with the "p" argument.
@@ -26,8 +26,13 @@ const P5Sketch = () => {
         //p.background(255);
         //p.fill('royalblue');
         //p.ellipse(p.width / 2, p.height / 2, 80, 80);
-        walker.step();
-        walker.show();
+
+        //walker.step();
+        //walker.show();
+        let x = p.randomGaussian(320, 60); 
+        p.noStroke();
+        p.fill(0, 10);
+        p.circle(x, 120, 16);
       };
     };
 
