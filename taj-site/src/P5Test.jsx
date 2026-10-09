@@ -7,43 +7,48 @@ const P5Sketch = () => {
   // 1. Create a reference to the DOM element that will hold the canvas
   const canvasRef = useRef(null);
 
-  let walker;
-  const width = 640;
-  const height = 240;
-  let x = 100;
-  let y = 100;
-  let xspeed = 2.5;
-  let yspeed = 2;
+
   
   useEffect(() => {
     // 2. Define the sketch inside Instance Mode. 
     // Every p5 function must be prefixed with the "p" argument.
     const sketch = (p) => {
+
+      let walker;
+      let x = 100;
+      let y = 100;
+      let xspeed = 2.5;
+      let yspeed = 2;
+
       p.setup = () => {
-        p.createCanvas(width, height);
-        walker = new Walker(p, width, height);
+        p.createCanvas(p.windowWidth, p.windowHeight);
+        walker = new Walker(p, p.width, p.height);
         p.background(255);
       };
+
+      p.windowResized = () => {
+        p.resizeCanvas(p.windowWidth, p.windowHeight);
+        p.background(255);
+      }
 
       let t = 0;
       let u = 10;
 
       p.draw = () => {
 
+        // x = x + xspeed;
+        // y = y + yspeed;
 
-        x = x + xspeed;
-        y = y + yspeed;
+        // if (x > p.windowWidth || x < 0){
+        //   xspeed = xspeed * -1;
+        // }
 
-        if (x > width || x < 0){
-          xspeed = xspeed * -1;
-        }
-
-        if (y > height || y < 0){
-          yspeed = yspeed * -1;
-        }
-        p.stroke(0);
-        p.fill(127);
-        p.circle(x, y, 48);
+        // if (y > p.windowHeight || y < 0){
+        //   yspeed = yspeed * -1;
+        // }
+        // p.stroke(0);
+        // p.fill(127);
+        // p.circle(x, y, 48);
 
         // let zoff = 0.0;
         // let xoff = 0.0 + zoff;
@@ -86,8 +91,8 @@ const P5Sketch = () => {
 
         //walker.step();
         //walker.quadraticStep(10);
-        //walker.gausStep();
-        //walker.show();
+        walker.gausStep();
+        walker.show();
         //let x = p.randomGaussian(320, 60); 
         //p.noStroke();
         //p.fill(0, 10);
