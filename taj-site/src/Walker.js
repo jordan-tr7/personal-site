@@ -68,29 +68,35 @@ export class Walker {
     }
 
 
-    step() {
-        let choice = Math.floor(Math.random() * 4);
+    step(size) {
 
-        if (choice === 0){
-            this.x++;
-        } else if (choice === 1) {
-            this.x--;
-        } else if (choice === 2) {
-            this.y++;
-        } else {
-            this.y--;
-        }
-    }
+        let xstep = this.getRandomIntInclusive(-size, size);
+        let ystep = this.getRandomIntInclusive(-size, size);
 
-    stepTwo(){
-        let xstep = this.getRandomIntInclusive(-1, 2);
-        let ystep = this.getRandomIntInclusive(-1, 2);
+        console.log(xstep, ystep);
 
         this.x += xstep;
         this.y += ystep;
+        
     }
 
-mouseStep(){
+    //TODO: generalize step with a goal, maybe strength? likelihood to move towards goal? 
+
+    // stepTwo(){
+    //     let xstep = this.getRandomIntInclusive(-2, 2);
+    //     let ystep = this.getRandomIntInclusive(-2, 2);
+
+    //     console.log(xstep, ystep);
+
+    //     this.x += xstep;
+    //     this.y += ystep;
+    
+    // }
+
+
+    
+
+    mouseStep(){
         let r = Math.random();
         
         if (r < 0.25) {

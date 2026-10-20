@@ -87,11 +87,12 @@ const P5Sketch = () => {
         // t += 0.01
         // u += 0.01
         //walker.perlinStep();
-        //walker.perlinStepSize(2);
+        walker.perlinStepSize(2);
 
-        //walker.step();
+        //walker.step(5);
+        //walker.mouseStep();
         //walker.quadraticStep(10);
-        walker.gausStep();
+        //walker.gausStep();
         walker.show();
         //let x = p.randomGaussian(320, 60); 
         //p.noStroke();
